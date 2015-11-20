@@ -147,13 +147,13 @@ class myComparator implements Comparator<Car>
             case "price":
                 return o1.getPrice() - o2.getPrice();
             case "cylinders":
-                return o1.getCylinders() - o2.getCylinders();
+                return o2.getCylinders() - o1.getCylinders();
             case "yearBuilt":
-                return o1.getYearBuilt() - o2.getYearBuilt();
+                return o2.getYearBuilt() - o1.getYearBuilt();
             case "horsePower":
-                return o1.getHorsePower() - o2.getHorsePower();
+                return o2.getHorsePower() - o1.getHorsePower();
             case "fuelCapacity":
-                return o1.getFuelCapacity() - o2.getFuelCapacity();
+                return o2.getFuelCapacity() - o1.getFuelCapacity();
             default:
                 System.out.println("Invalid comparison type");
                 return 0;
