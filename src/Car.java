@@ -1,4 +1,7 @@
 import java.util.Comparator;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
 
 /**
  * Created by Daniel on 11/6/2015.
@@ -6,6 +9,9 @@ import java.util.Comparator;
 public class Car {
     String name;
     int mileage, price, yearBuilt, cylinders, horsePower, fuelCapacity;
+    int[] rankArray;
+    int totalRank;
+    Map<String, Integer> rankMap;
 
     public Car(String name, int mileage, int price, int yearBuilt, int cylinders, int horsePower, int fuelCapacity) {
         this.name = name;
@@ -15,12 +21,23 @@ public class Car {
         this.cylinders = cylinders;
         this.horsePower = horsePower;
         this.fuelCapacity = fuelCapacity;
+        rankArray = new int[6];
+        rankMap = new HashMap<String, Integer>();
+        totalRank = 0;
+
     }
 
     public Car()
     {
+        rankArray = new int[6];
+        rankMap = new HashMap<String, Integer>();
+        totalRank = 0;
     }
 
+    public void setRank(String type, int rank)
+    {
+        rankMap.put(type, rank);
+    }
     public int getFuelCapacity() {
         return fuelCapacity;
     }
@@ -75,6 +92,39 @@ public class Car {
 
     public void setHorsePower(int horsePower) {
         this.horsePower = horsePower;
+    }
+
+    public int calculateTotalRank()
+    {
+        /*
+        for (int i = 0; i < rankMap.size(); i++)
+        {
+
+            if (rankArray[i] != 0)
+                totalRank += rankArray[i];
+        }
+
+        return totalRank;
+
+        */
+
+        Iterator<Integer> i = rankMap.values().iterator();
+        while (i.hasNext())
+        {
+            totalRank += i.next();
+        }
+
+        return totalRank;
+    }
+
+    public int getRank(String type)
+    {
+        return rankMap.get(type);
+    }
+
+    public int getTotalRank()
+    {
+        return totalRank;
     }
 }
 

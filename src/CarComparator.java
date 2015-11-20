@@ -11,6 +11,7 @@ import java.util.Scanner;
 public class CarComparator
 {
     static ArrayList<Car> carArray = new ArrayList<Car>();
+    static Car [][] sortedCarArrays;
 
     public static void main(String[] args)
     {
@@ -20,6 +21,8 @@ public class CarComparator
         {
             e.printStackTrace();
         }
+
+        sortedCarArrays = new Car[6][carArray.size()];
 
         Scanner in = new Scanner(System.in);
         String choice;
